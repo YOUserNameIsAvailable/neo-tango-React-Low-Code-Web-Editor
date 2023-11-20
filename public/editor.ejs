@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>React Low-Code Editor</title>
+    <link rel="icon" href="favicon.png">
+    <!--The page theme style of the low-code engine, which can be replaced by theme-lowcode-dark -->
+    <link href="https://alifd.alicdn.com/npm/@alifd/theme-lowcode-light@0.2.1/variables.css" rel="stylesheet" />
+    <link href="https://alifd.alicdn.com/npm/@alifd/theme-lowcode-light@0.2.1/dist/next.var.min.css" rel="stylesheet" />
+    <!--Page frame style of low-code engine -->
+    <link rel="stylesheet"
+      href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.2.2-beta.1/dist/css/engine-core.css" />
+    <!--The style of the low-code engine official extension -->
+    <link rel="stylesheet"
+      href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.6/dist/css/engine-ext.css" />
+
+    <link href="./css/editor.css" rel="stylesheet" />
+
+    <!--React, can be replaced by the production package -->
+    <script src="https://g.alicdn.com/code/lib/react/16.14.0/umd/react.production.min.js"></script>
+    <!--React DOM, can be replaced by the production package -->
+    <script src="https://g.alicdn.com/code/lib/react-dom/16.14.0/umd/react-dom.production.min.js"></script>
+    <!--React is backward compatible to prevent material layer dependencies -->
+    <script src="https://g.alicdn.com/code/lib/prop-types/15.7.2/prop-types.js"></script>
+    <script src="https://g.alicdn.com/platform/c/react15-polyfill/0.0.1/dist/index.js"></script>
+    <!--lodash, dependency of low-code editor -->
+    <script src="https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js"></script>
+    <!--Date processing package, dependency of Fusion Next -->
+    <script src="https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js"></script>
+    <!--The main package of Fusion Next, a dependency of the low-code editor -->
+    <script src="https://g.alicdn.com/code/lib/alifd__next/1.24.18/next.min.js"></script>
+    <!--Main package of low-code engine -->
+    <script crossorigin="anonymous"
+      src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.2.2-beta.1/dist/js/engine-core.js"></script>
+    <!--The main package of the low-code engine official extension -->
+    <script crossorigin="anonymous"
+      src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.6/dist/js/engine-ext.js"></script>
+    <script>
+      console.log(
+        '%c ReactLowCodeEditor %c v<%= version %> ',
+        'padding: 2px 1px; border-radius: 3px 0 0 3px; color: #fff; background: #b37feb; font-weight: bold;',
+        'padding: 2px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e; font-weight: bold;',
+      );
+    </script>
+
+    <!-- <script>
+      /* When browsers use Google Translate it breaks React apps like ours because they
+      * replace text nodes with <font> tags, changing the dom structure and causing
+      * React to throw errors. 
+      *
+      * This code is the workaround described by the react team here:
+      *   https://github.com/facebook/react/issues/11538#issuecomment-417504600
+      */
+      try {
+        if (typeof Node === 'function' && Node.prototype) {
+          var originalRemoveChild = Node.prototype.removeChild;
+          Node.prototype.removeChild = function (child) {
+            if (child.parentNode !== this) {
+              if (console) {
+                console.warn('Cannot remove a child from a different parent', child, this);
+              }
+              return child;
+            }
+            return originalRemoveChild.apply(this, arguments);
+          }
+
+          var originalInsertBefore = Node.prototype.insertBefore;
+          Node.prototype.insertBefore = function (newNode, referenceNode) {
+            if (referenceNode && referenceNode.parentNode !== this) {
+              if (console) {
+                console.warn('Cannot insert before a reference node from a different parent', referenceNode, this);
+              }
+              return newNode;
+            }
+            return originalInsertBefore.apply(this, arguments);
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    </script> -->
+
+    <!-- <script>
+      // Register the Service Worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => {
+            reg.update(); // Force the service worker to update
+            // reg.waiting?.postMessage({ type: 'SKIP_WAITING' }); // Alternatively, to immediately activate the updated service worker
+            console.log('Service Worker registered');
+          })
+          .catch(err => {
+            console.error('Service Worker registration failed:', err);
+          });
+      }
+    </script> -->
+  </head>
+
+  <body>
+    <div id="editor-container"></div>
+    <script type="text/javascript" src="./js/editor.js"></script>
+  </body>
+
+</html>
